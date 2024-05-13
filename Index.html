@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Журнал оценок</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script> 
+</head>
+<body>
+  
+  <div id="defaultTab" class="tab">
+    <header>
+      <h1 class="title">Журнал оценок</h1>
+    </header>
+
+    <nav aria-label="Навигация по вкладкам">
+      <ul id="tabs" role="tablist">
+        <li role="presentation">
+          <button id="uploadTabBtn" class="tabButton" aria-controls="uploadTab">Загрузка оценок</button>
+        </li>
+        <li role="presentation">
+          <button id="editTabBtn" class="tabButton" aria-controls="editTab">Создание/Редактирование журнала</button>
+        </li>
+        <li role="presentation">
+          <button id="statsTabBtn" class="tabButton" aria-controls="statsTab">Статистика (табличная)</button>
+        </li>
+        <li role="presentation">
+          <button id="graphTabBtn" class="tabButton" aria-controls="graphTab">Статистика (графическая)</button>
+        </li>
+        <li role="presentation">
+          <button id="helpTabBtn" class="tabButton" aria-controls="helpTab">Помощь</button>
+        </li>
+        <li role="presentation">
+          <button id="devTabBtn" class="tabButton" aria-controls="devTab">О разработчике</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <section id="tabs-container">
+    <!-- Вкладка загрузки оценок -->
+    <section id="uploadTab" class="tab" role="tabpanel" aria-labelledby="uploadTabBtn">
+        <h2> Загрузка оценкок </h2>
+    <button onclick="openTab('defaultTab')">Вернуться на домашнюю страницу</button> 
+        <input type="file" id="file-input" accept=".csv, .txt, .xlsx, .xls" style="display: none;">
+        <button id="upload-button"> Выбрать файл для загрузки  </button>
+        <button id="download-data-button"> Скачать данные с сайта </button>
+        <div id="data-preview">
+            
+        </div>
+    </section>
+
+    <!-- Вкладка редактирования журнала -->
+    <section id="editTab" class="tab" role="tabpanel" aria-labelledby="editTabBtn">
+    <button onclick="openTab('defaultTab')">Вернуться на домашнюю страницу</button> 
+        <div id="data-edit">
+            
+        </div>
+    </section>
+
+    <!-- Вкладка статистики -->
+    <section id="statsTab" class="tab" role="tabpanel" aria-labelledby="statsTabBtn">
+    <button onclick="openTab('defaultTab')">Вернуться на домашнюю страницу</button> 
+      <h2>Статистика по классам</h2>
+      <div id="stats-table">
+            
+      </div>
+
+      <h2>Статистика по ученикам</h2>
+      <div id="student-stats-table">
+                    
+      </div>
+    </section>
+
+    <!-- Вкладка графической статистики -->
+    <section id="graphTab" class="tab" role="tabpanel" aria-labelledby="graphTabBtn">
+    <button onclick="openTab('defaultTab')">Вернуться на домашнюю страницу</button> 
+    <h2>График статистики для классов</h2>   
+    <div id="studentsStatsChart">
+        <canvas id="studentGraphCanvas"></canvas>
+      </div>
+      
+      <h3>График статистики для студентов</h3>
+      <div id="classStatsChart">
+        <canvas id="classGraphCanvas"></canvas>
+      </div>
+    
+    </section>
+
+    <!-- Вкладка помощи -->
+    <section id="helpTab" class="tab" role="tabpanel" aria-labelledby="helpTabBtn">
+    <button onclick="openTab('defaultTab')">Вернуться на домашнюю страницу</button> 
+      <div class="help-content">
+        <div class="help-block">
+          <h2>Загрузка оценок</h2>
+          <ol>
+            <li>Перейдите во вкладку "Загрузка оценок".</li>
+            <li>Нажмите кнопку "Выберите файл", чтобы выбрать файл для загрузки.</li>
+            <li>Выберите нужный файл из каталога и нажмите "Загрузить".</li>
+          </ol>
+          <p>После этого данные из файла будут загружены в систему.</p>
+        </div>
+
+        <div class="help-block">
+          <h2>Редактирование журнала</h2>
+          <ol>
+            <li>Перейдите во вкладку "Создание/редактирование журнала".</li>
+            <li>Используйте таблицу слева для редактирования или добавления данных об учениках.</li>
+            <li>Для редактирования нажмите "Редактировать" и внесите изменения.</li>
+            <li>Для добавления нового ученика заполните поля справа и нажмите "Добавить ученика".</li>
+            <li>Чтобы удалить ученика, используйте кнопку "Удалить".</li>
+          </ol>
+          <p>Следуя этим шагам, вы сможете управлять данными в журнале.</p>
+        </div>
+
+        <div class="help-block">
+          <h2>Статистика (табличная)</h2>
+          <p>Для просмотра статистики по классам и предметам, перейдите в соответствующий раздел.</p>
+          <ul>
+            <li>Средняя оценка по каждому предмету.</li>
+            <li>Медиана оценок.</li>
+            <li>Количество учеников с различными оценками.</li>
+            <li>Процентное соотношение оценок по каждому предмету.</li>
+          </ul>
+        </div>
+
+        <div class="help-block">
+          <h2>Статистика (графическая)</h2>
+          <p>Для визуализации данных по оценкам, перейдите в графический раздел.</p>
+          <ul>
+            <li>Графики для оценки средней и медианной оценок.</li>
+            <li>Графики для количества учеников с различными оценками.</li>
+            <li>Процентное соотношение оценок.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Вкладка о разработчике -->
+    <section id="devTab" class="tab" role="tabpanel" aria-labelledby="devTabBtn">
+    <button onclick="openTab('defaultTab')">Вернуться на домашнюю страницу</button> 
+      <div class="developer-content">
+        <div class="developer-info">
+          <img src="photo.jpg" alt="Изображение разработчика" class="avatar">
+          <ul>
+            <li><strong>ФИО:</strong> Кабанов Герман Сергеевич</li>
+            <li><strong>Учебное заведение:</strong> Сибирский государственный университет телекоммуникаций и информатики</li>
+            <li><strong>Группа:</strong> АБ-107</li>
+            <li><strong>Курс:</strong> 3</li>
+          </ul>
+        </div>
+        
+        <div class="contact-info">
+          <ul>
+            <li><strong>Email:</strong> rogin8444@gmail.com</li>
+            <li><strong>Telegram:</strong> @Fruitapunch</li>
+            <li><strong>VK:</strong> kyprivetdarovabratik</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <script src="script.js" defer></script> 
+</body>
+</html>

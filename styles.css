@@ -1,0 +1,537 @@
+
+#defaultTab {
+    padding: 10px;                     
+    background: white;                   
+    position: relative;                  
+    z-index: 2;                         
+    text-align: center;                 
+  }
+  
+
+  #defaultTab header {
+    padding: 15px;                      
+    font-size: 18px;                    
+    border: 2px solid #ffffff;            
+    border-radius: 5px;                
+    background-color: #68767a;           
+    color: white;                       
+    width: fit-content;                    
+    margin: 40px auto;                    
+  }
+  
+  
+  #defaultTab #tabs-container {
+    width: 30%;                          
+    margin: 10px auto;                    
+    text-align: center;                      
+  }
+  
+  
+  #defaultTab #tabs {
+    list-style-type: none;                 
+    padding: 0;                              
+    margin: 10px auto;                        
+    display: flex;                            
+    flex-direction: column;                     
+    gap: 10px;                                  
+  }
+  
+  
+  #defaultTab .tabButton {
+    display: block;                              
+    min-width: 120px;                              
+    padding: 10px;                                  
+    font-size: 16px;                               
+    cursor: pointer;                               
+    border: none;                                    
+    border-radius: 5px;                           
+    background-color: #008CBA;                        
+    color: white;                                      
+    text-align: center;                                 
+    margin: 15px auto;                                  
+  }
+  
+  
+  #defaultTab .tabButton.active {
+    background-color: #ddd;                          
+  }
+  
+
+  
+  #uploadTab button[onclick*="openTab('defaultTab')"] {
+    background-color: #9013fe; 
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer;
+  }
+  
+  #uploadTab button[onclick*="openTab('defaultTab')"]:hover {
+    background-color: #7711d4; 
+  }
+
+#uploadTab {
+    background: linear-gradient(to right, #4ae2af, #9013fe); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+  
+  #uploadTab h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white; 
+  }
+  
+  
+  #uploadTab button {
+    background-color: #4a90e2;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+  }
+  
+  #uploadTab button:hover {
+    background-color: #3b7dbf; 
+  }
+  
+  
+  #upload-button, #download-data-button {
+    background-color: #9013fe; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white; 
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+  }
+  
+  #upload-button:hover, #download-data-button:hover {
+    background-color: #7711d4; 
+  }
+  
+  
+  #data-preview {
+    max-width: 100%; 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+  }
+  
+  #data-preview table {
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  
+  #data-preview th, #data-preview td {
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  #data-preview th {
+    background-color: #4a90e2; 
+    color: white; 
+  }
+  
+  #data-preview tr {
+    color: #333; 
+  }
+  
+  #data-preview tr:hover {
+    background-color: #f1f1f1; 
+  }
+
+ 
+#editTab {
+    background: linear-gradient(to right, #4ae2af, #9013fe); 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+  
+  #editTab h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white; 
+  }
+  
+  
+  #editTab button {
+    background-color: #4a90e2; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; 
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    margin: 5px; 
+  }
+  
+  
+  #editTab button:hover {
+    background-color: #3b7dbf; 
+  }
+  
+  
+  #editTab button[onclick*="openTab('defaultTab')"] {
+    background-color: #9013fe; 
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer;
+  }
+  
+  #editTab button[onclick*="openTab('defaultTab')"]:hover {
+    background-color: #7711d4; 
+  }
+  
+  
+  #data-edit {
+    max-width: 100%; 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+  }
+  
+  
+  #data-edit table {
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  
+  
+  #data-edit th {
+    background-color: #4a90e2; 
+    color: white; 
+    padding: 10px; 
+  }
+  
+  
+  #data-edit tr {
+    color: #333; 
+  }
+  
+  #data-edit tr:hover {
+    background-color: #f1f1f1; 
+  }
+  
+  
+  #data-edit th, #data-edit td {
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+  }
+
+  
+#statsTab {
+    background: linear-gradient(to right, #4ae2af, #9013fe); 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+  
+  #statsTab h2 {
+    font-size: 24px;
+    text-align: center; 
+    color: white; 
+  }
+  
+  
+  #statsTab button {
+    background-color: #9013fe; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    margin: 5px; 
+  }
+  
+  
+  #statsTab button:hover {
+    background-color: #7711d4; 
+  }
+  
+  
+  #stats-table {
+    max-width: 100%; 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+  }
+  
+
+  #stats-table table {
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  
+ 
+  #stats-table th {
+    background-color: #4a90e2; 
+    color: white; 
+    padding: 10px; 
+  }
+  
+ 
+  #stats-table tr {
+    color: #333; 
+  }
+  
+  #stats-table tr:hover {
+    background-color: #f1f1f1; 
+  }
+  
+  #stats-table th, #stats-table td {
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  
+  #student-stats-table {
+    max-width: 100%; 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+  }
+  
+  
+  #student-stats-table table {
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  
+
+  #student-stats-table th {
+    background-color: #4a90e2; 
+    color: white; 
+    padding: 10px; 
+  }
+  
+  
+  #student-stats-table tr {
+    color: #333; 
+  }
+  
+  #student-stats-table tr:hover {
+    background-color: #f1f1f1; 
+  }
+  
+  #student-stats-table th, #student-stats-table td {
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  
+#graphTab {
+    background: linear-gradient(to right, #4ae2af, #9013fe); 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+  
+  #graphTab h2, #graphTab h3 {
+    font-size: 24px; 
+    text-align: center; 
+    color: white; 
+    margin-bottom: 20px; 
+  }
+  
+  
+  #graphTab button {
+    background-color: #9013fe; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    margin: 5px; 
+  }
+  
+  
+  #graphTab button:hover {
+    background-color: #7711d4; 
+  }
+  
+  
+  #studentsStatsChart, #classStatsChart {
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    margin: 10px 0; 
+  }
+  
+  
+  canvas {
+    max-width: 100%; 
+    border-radius: 10px; 
+  }
+
+
+#helpTab {
+    background: linear-gradient(to right, #4ae2af, #9013fe); 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+ 
+  .help-content {
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+  }
+  
+  
+  .help-block {
+    background: #f7f7f7; 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  
+  .help-block h2 {
+    font-size: 20px; 
+    color: #9013fe; 
+    margin-bottom: 10px; 
+  }
+  
+  
+  .help-block ol, .help-block ul {
+    padding-left: 20px; 
+  }
+  
+  
+  .help-block li {
+    margin-bottom: 10px; 
+    color: #333; 
+  }
+
+  
+#helpTab button {
+    background-color: #9013fe; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    margin: 5px; 
+  }
+  
+  
+  #helpTab button:hover {
+    background-color: #7711d4; 
+  }
+
+
+#devTab {
+    background: linear-gradient(to right, #4ae2af, #9013fe); 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    color: white; 
+  }
+  
+
+  #devTab button {
+    background-color: #4a90e2; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; 
+    color: white; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #devTab button:hover {
+    background-color: #3b7dbf; 
+  }
+  
+  
+  .developer-content {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 30px; 
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+  }
+  
+ 
+  .avatar {
+    width: 460px; 
+    height: 480px;
+    border: 3px solid white; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+  }
+  
+ 
+  .developer-info ul, .contact-info ul {
+    list-style-type: none; 
+    padding: 0;
+    margin-left: 0;
+  }
+  
+  
+  .developer-info li, .contact-info li {
+    color: #333; 
+    font-size: 16px; 
+    margin-bottom: 10px; 
+  }
+  
+  
+  .developer-info strong {
+    color: #9013fe; 
+  }
+  
+  
+  .contact-info {
+    background: #f1f1f1; 
+    padding: 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
